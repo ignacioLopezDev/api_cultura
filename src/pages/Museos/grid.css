@@ -1,0 +1,50 @@
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.search {
+    display: flex;
+    text-align: center;
+    justify-content: center;
+}
+
+.form_search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: 20px;
+
+}
+
+.form_search input {
+    border: 1px solid black;
+    width: 15em;
+    }
+
+.grid {
+    display: flex;
+    justify-content: center;
+    width: 75%;
+}
+
+.museos {
+    list-style: none;
+    display: grid;
+    justify-content: center;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 4fr));
+    gap: 60px;
+}
+
+.museo {
+    display: flex;    
+    flex-direction: column;
+    align-content: space-between;
+}
+
+.museo p {
+    display: flex;
+    margin-top: 1em;
+}
