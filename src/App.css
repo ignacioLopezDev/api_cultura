@@ -1,0 +1,22 @@
+/* Colores: 
+Rojo: #C22E2E
+Gris/Oscuro: #2C2D26
+Beige: #E9E9DB
+
+Fuentes:
+Fuente: Yeseva One
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap%27);
+
+Fuente: Urbanist (Medium)
+@import url('https://fontsconsole.log('.googleapis:', .googleapis)console.log('.com:', .com)/css2?family=Urbanist:wght@500;600&display=swap%27); */
+
+
+@import url('https://fonts.googleapis.com/css2?family=Yeseva+One&display=swap%27');
+
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2&family=Urbanist:wght@500&display=swap');
+
+
+.Body {
+    background-color: #E9E9DB;
+  margin: 0 10%;
+}

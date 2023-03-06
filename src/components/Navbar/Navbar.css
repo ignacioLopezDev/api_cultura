@@ -1,3 +1,33 @@
-.Navbar {
-    color: blue;
+header {
+  box-sizing: border-box;
+  margin-left: 22%;
+  margin-right: 10%;
+  padding-top: 3em;
+  padding-bottom: 1.2em;
+  background-color: #E9E9DB;
+  color: #2C2D26;
+  border-bottom: 1px solid #2C2D26;
+}
+
+header nav {
+  display: flex;
+}
+
+nav ul {
+    font-family: "Urbanist", sans-serif;
+    display: flex;
+  font-size: 0.8em;
+ 
+}
+
+ul div{
+     padding-left: 2px;
+    padding-right: 35px;
+
+}
+
+ul p{
+    padding-left: 2px;
+   padding-right: 35px;
+
 }
