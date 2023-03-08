@@ -3,6 +3,7 @@ import "./App.css";
 import { AboutUs } from "./components/AboutUs";
 import Navbar from "./components/Navbar/Navbar";
 import { Home } from "./pages/Home";
+import { Grid } from "./pages/Museos/Grid"
 import IndividualView from "./components/IndividualView/IndividualView";
 import { ChakraProvider } from "@chakra-ui/react";
 import theme from "./theme";
@@ -16,6 +17,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/aboutus" element={<AboutUs />} />
           <Route path="/museum" element={<IndividualView />} />
+          <Route path='museos' element={<Grid />} />
+
         </Routes>
       </div>
     </ChakraProvider>
