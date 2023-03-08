@@ -5,10 +5,11 @@ import Navbar from "./components/Navbar/Navbar";
 import { Home } from "./pages/Home";
 import IndividualView from "./components/IndividualView/IndividualView";
 import { ChakraProvider } from "@chakra-ui/react";
+import theme from "./theme";
 
 function App() {
   return (
-    <ChakraProvider>
+    <ChakraProvider theme={theme}>
       <div>
         <Navbar />
         <Routes>

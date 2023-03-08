@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Image, Box, Heading, SimpleGrid, Stack } from "@chakra-ui/react";
+import { Image, Box, Heading, Container } from "@chakra-ui/react";
 
 const IndividualView = () => {
   const id = "27";
@@ -37,29 +37,32 @@ const IndividualView = () => {
   }, []);
 
   return (
-    <div>
-      <SimpleGrid columns={2} spacingX="10px">
-        <Box
-          align="left"
-          p="20px"
-          height="80px"
-          direction={{ base: "column", sm: "row" }}
-        >
-          <Image
-            borderRadius="full"
-            maxW={{ base: "100%", sm: "200px" }}
-            src={museumApiInt.logo}
-            alt="Logo museo"
-            objectFit="cover"
-          />
-        </Box>
-        <Stack height="80px" align="left">
-          <Heading as="h1" textAlign="left">
-            {museum.nombre}
-          </Heading>
-        </Stack>
-      </SimpleGrid>
-    </div>
+    <>
+      <Box>
+        <Container maxWidth="container.xl">
+          <Box
+            py="20"
+            flexDirection="row"
+            display="flex"
+            flexWrap="nowrap"
+            justifyContent="center"
+            alignItems="center"
+          >
+            <Image w="15%" src={museumApiInt.logo} alt="Logo museo" mr="10"/>
+
+            <Box>
+              <Heading className="heading" as="h1" size="2xl">
+                <Box>{museum.nombre}</Box>
+              </Heading>
+            </Box>
+          </Box>
+        </Container>
+      </Box>
+
+      <Box>
+
+      </Box>
+    </>
   );
 };
 
