@@ -48,7 +48,7 @@ const IndividualView = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Image w="15%" src={museumApiInt.logo} alt="Logo museo" mr="10"/>
+            <Image w="15%" src={museumApiInt.logo} alt="Logo museo" mr="10" />
 
             <Box>
               <Heading className="heading" as="h1" size="2xl">
@@ -59,9 +59,7 @@ const IndividualView = () => {
         </Container>
       </Box>
 
-      <Box>
-
-      </Box>
+      <Box></Box>
     </>
   );
 };
