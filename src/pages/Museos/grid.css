@@ -1,4 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Urbanist:wght@500;600&family=Yeseva+One&display=swap');
+
 .page {
+    background-color: #E9E9DB;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -9,6 +12,15 @@
     display: flex;
     text-align: center;
     justify-content: center;
+    background-color: #2C2D26;
+    width: 100%;
+    padding: 50px;
+    color: #E9E9DB;
+}
+
+.title_search {
+    font-family: 'Yeseva One', cursive;
+    font-size: 2em;
 }
 
 .form_search {
@@ -16,13 +28,14 @@
     align-items: center;
     justify-content: center;
     margin-left: 20px;
-
-}
-
-.form_search input {
-    border: 1px solid black;
-    width: 15em;
     }
+
+.form_search input{
+    border: 1px solid #E9E9DB;
+    width: 15em;
+    border-radius: 10px;
+    background-color: #2C2D26;
+  }
 
 .grid {
     display: flex;
@@ -39,7 +52,7 @@
 }
 
 .museo {
-    display: flex;    
+    display: flex;
     flex-direction: column;
     align-content: space-between;
 }
@@ -47,4 +60,6 @@
 .museo p {
     display: flex;
     margin-top: 1em;
+    font-family: 'Urbanist', sans-serif;
+    font-size: 15px;
 }
