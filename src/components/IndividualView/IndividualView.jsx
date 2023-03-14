@@ -1,40 +1,37 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Image, Box, Heading, Container } from "@chakra-ui/react";
+import Carousel from "../Carousel/Carousel";
 
 const IndividualView = () => {
-  const id = "27";
+  const id = 2;
   const [museum, setMuseum] = useState({});
-  const [museumApiInt, setMuseumApiInt] = useState([]);
+  const [imageMuseum, setImageMuseum] = useState([]);
 
   useEffect(() => {
-    const fetchApi = async () => {
-      const response = await fetch(import.meta.env.VITE_API_CULTURA);
-      const responseJson = await response.json();
-      for (let index = 0; index < responseJson.results.length; index++) {
-        const element = responseJson.results[index];
-        if (id == element.id) {
-          // console.log(element);
-          setMuseum(element);
-        }
-      }
-    };
     fetchApi();
-  }, []);
+  }, [id]);
+
+  function fetchApi() {
+    fetch(`${import.meta.env.VITE_API_CULTURA}/${id}`)
+      .then((res) => res.json())
+      .then((data) => setMuseum(data));
+  }
+
+  console.log("SOY MUSEUM", museum);
 
   useEffect(() => {
-    const fetchApiInt = async () => {
-      const res = await fetch("../../src/mock/apicultura.json");
-      const resJson = await res.json();
-      for (let i = 0; i < resJson.results.length; i++) {
-        const e = resJson.results[i];
-        if (id == e.id) {
-          // console.log("SOY E", e);
-          setMuseumApiInt(e);
-        }
-      }
-    };
-    fetchApiInt();
-  }, []);
+    getFetch();
+  }, [id]);
+
+  function getFetch() {
+    fetch(`${import.meta.env.VITE_API_CULTURA_IMAGES}/${id}`)
+      .then((res) => res.json())
+      .then((data) => setImageMuseum(data.img));
+  }
+
+  // imageMuseum.forEach((element) => {
+  //   console.log(element);
+  // });
 
   return (
     <>
@@ -48,7 +45,7 @@ const IndividualView = () => {
             justifyContent="center"
             alignItems="center"
           >
-            <Image w="15%" src={museumApiInt.logo} alt="Logo museo" mr="10" />
+            <Image w="15%" src={museum.logo} alt="Logo museo" mr="10" />
 
             <Box>
               <Heading className="heading" as="h1" size="2xl">
@@ -58,8 +55,9 @@ const IndividualView = () => {
           </Box>
         </Container>
       </Box>
-
-      <Box></Box>
+      <Box>
+        <Carousel />
+      </Box>
     </>
   );
 };
