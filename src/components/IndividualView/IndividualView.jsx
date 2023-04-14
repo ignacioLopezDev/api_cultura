@@ -1,15 +1,10 @@
-import React, { useState, useEffect, useCallback } from "react";
-import { Image, Box, Heading, Container } from "@chakra-ui/react";
+import React, { useState, useEffect } from "react";
 import Carousel from "../Carousel/Carousel";
 
-const IndividualView = () => {
+const individualView = () => {
   const id = 2;
-  const [museum, setMuseum] = useState({});
-  const [imageMuseum, setImageMuseum] = useState([]);
 
-  useEffect(() => {
-    fetchApi();
-  }, [id]);
+  const [museum, setMuseum] = useState({});
 
   function fetchApi() {
     fetch(`${import.meta.env.VITE_API_CULTURA}/${id}`)
@@ -17,49 +12,30 @@ const IndividualView = () => {
       .then((data) => setMuseum(data));
   }
 
-  console.log("SOY MUSEUM", museum);
-
   useEffect(() => {
-    getFetch();
+    fetchApi();
   }, [id]);
 
-  function getFetch() {
-    fetch(`${import.meta.env.VITE_API_CULTURA_IMAGES}/${id}`)
-      .then((res) => res.json())
-      .then((data) => setImageMuseum(data.img));
-  }
-
-  // imageMuseum.forEach((element) => {
-  //   console.log(element);
-  // });
+  console.log("SOY MUSEUM", museum);
 
   return (
-    <>
-      <Box>
-        <Container maxWidth="container.xl">
-          <Box
-            py="20"
-            flexDirection="row"
-            display="flex"
-            flexWrap="nowrap"
-            justifyContent="center"
-            alignItems="center"
-          >
-            <Image w="15%" src={museum.logo} alt="Logo museo" mr="10" />
-
-            <Box>
-              <Heading className="heading" as="h1" size="2xl">
-                <Box>{museum.nombre}</Box>
-              </Heading>
-            </Box>
-          </Box>
-        </Container>
-      </Box>
-      <Box>
-        <Carousel />
-      </Box>
-    </>
+    <div className="mx-auto w-full bg-beiges">
+      <div className="flex flex-row items-center relative">
+        <div className="rounded-full drop-shadow-3xl lg:h-64 lg:w-64 md:h-40 md:w-40 sm:h-24 sm:w-24 h-20 w-20 lg:p-8 sm:p-2">
+          <img className="" src={museum.logo} />
+        </div>
+        <div className="max-w-screen-2xl h-full items-center mx-auto w-full">
+          <h1 className="font-yeseva-one p-4">
+            {museum.nombre}
+          </h1>
+        </div>
+      </div>
+      <Carousel />
+      <div>
+        <h2 className="font-yeseva-one"></h2>
+      </div>
+    </div>
   );
 };
 
-export default IndividualView;
+export default individualView;

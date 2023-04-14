@@ -1,3 +1,15 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer base {
+    h1 {
+      @apply text-black md:text-lg lg:text-xl sm:text-base text-sm flex justify-between text-center
+    }
+    h2 {
+      @apply text-black py-4 lg:py-12 text-base lg:text-xl lg:flex justify-center text-center lg:items-center
+    }
+    p {
+      @apply py-4 text-sm sm:text-base
+    }
+  }

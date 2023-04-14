@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Image, Box } from "@chakra-ui/react";
-import { ArrowBackIcon, ArrowForwardIcon } from "@chakra-ui/icons";
+import { HiChevronRight, HiChevronLeft } from "react-icons/hi2";
+import { RxDotFilled } from "react-icons/rx";
 
 const Carousel = () => {
   const slide = [
@@ -31,43 +31,46 @@ const Carousel = () => {
   ];
 
   const [currentIndex, setCurrentIndex] = useState(0);
-  const prevSlide = () => {
-    const isFirstSlide = currentIndex === 0;
-    const newIndex = isFirstSlide ? slide.length - 1 : currentIndex - 1;
-    setCurrentIndex(newIndex);
+
+  const prevSlice = () => {
+    const isFirstSlice = currentIndex === 0;
+    const nextIndex = isFirstSlice ? slide.length - 1 : currentIndex - 1;
+    setCurrentIndex(nextIndex);
   };
   const nextSlide = () => {
     const isLastSlide = currentIndex === slide.length - 1;
-    const newIndex = isLastSlide ? 0 : currentIndex + 1;
-    setCurrentIndex(newIndex);
+    const nextIndex = isLastSlide ? 0 : currentIndex + 1;
+    setCurrentIndex(nextIndex);
+  };
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
   };
 
   return (
-    <Box>
-      <Image src={slide[0].img[currentIndex]} alt="image" w="100%" h="750px" />;
-      <Box
-        position="absolute"
-        top="65%"
-        left="5"
-        rounded="md"
-        p={2}
-        bg="black"
-        color="white"
-      >
-        <ArrowBackIcon onClick={prevSlide} boxSize={8} />
-      </Box>
-      <Box
-        position="absolute"
-        top="65%"
-        right="5"
-        rounded="md"
-        p={2}
-        bg="black"
-        color="white"
-      >
-        <ArrowForwardIcon onClick={nextSlide} boxSize={8} />
-      </Box>
-    </Box>
+    <div className="max-w-[1400px] h-[780px] w-full m-auto py-12 px-4 relative group">
+      <div
+        style={{ backgroundImage: `url(${slide[0].img[currentIndex]})` }}
+        className="w-full h-full rounded-2xl bg-center bg-cover duration-500"
+      ></div>
+      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] left-5 text-2xl reounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <HiChevronLeft onClick={prevSlice} size={30} />
+      </div>
+      <div className="hidden group-hover:block absolute top-[50%] -translate-x-0 translate-y-[-50%] right-5 text-2xl reounded-full p-2 bg-black/20 text-white cursor-pointer">
+        <HiChevronRight onClick={nextSlide} size={30} />
+      </div>
+      <div className="flex top-4 justify-center py-2">
+        {slide.map((element, index) => (
+          <div
+            key={index}
+            onClick={() => goToSlide(index)}
+            className="text-2xl cursor-pointer"
+          >
+            <RxDotFilled />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 };
 

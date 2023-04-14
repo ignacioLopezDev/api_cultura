@@ -1,6 +1,6 @@
 import api_propia from "../../mock/apicultura.json"
 import "./grid.css"
-import { Search2Icon } from '@chakra-ui/icons'
+// import { Search2Icon } from '@chakra-ui/icons'
 
 
 export function Grid() {
@@ -14,7 +14,7 @@ export function Grid() {
                 <h1 className="title_search">Buscar</h1>
                 <form className="form_search">
                     <input type="text" placeholder="Bellas Artes, Malvinas, Cabildo..." />
-                    <button type='submit'><Search2Icon /></button>
+                    {/* <button type='submit'><Search2Icon /></button> */}
 
                 </form>
             </section>
